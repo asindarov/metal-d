@@ -243,40 +243,50 @@ public:
     /**
         
     */
-    @property MTLPixelFormat pixelFormat() @selector("pixelFormat") ;
-    @property void pixelFormat(MTLPixelFormat) @selector("setPixelFormat:") ;
+    @property MTLPixelFormat pixelFormat();
+    @property void pixelFormat(MTLPixelFormat);
 
     /**
         
     */
-    @property bool blendingEnabled() @selector("isBlendingEnabled") ;
-    @property void blendingEnabled(bool) @selector("setBlendingEnabled:") ;
+    @property bool isBlendingEnabled();
+    @property void isBlendingEnabled(bool);
 
     /**
         
     */
-    @property MTLBlendFactor sourceRGBBlendFactor() @selector("sourceRGBBlendFactor") ;
-    @property void sourceRGBBlendFactor(MTLBlendFactor) @selector("setSourceRGBBlendFactor:") ;
+    @property MTLBlendOperation rgbBlendOperation();
+    @property void rgbBlendOperation(MTLBlendOperation);
 
     /**
         
     */
-    @property MTLBlendFactor destinationRGBBlendFactor() @selector("destinationRGBBlendFactor") ;
-    @property void destinationRGBBlendFactor(MTLBlendFactor) @selector(
-        "setDestinationRGBBlendFactor:") ;
+    @property MTLBlendOperation alphaBlendOperation();
+    @property void alphaBlendOperation(MTLBlendOperation);
 
     /**
         
     */
-    @property MTLBlendFactor sourceAlphaBlendFactor() @selector("sourceAlphaBlendFactor") ;
-    @property void sourceAlphaBlendFactor(MTLBlendFactor) @selector("setSourceAlphaBlendFactor:") ;
+    @property MTLBlendFactor sourceRGBBlendFactor();
+    @property void sourceRGBBlendFactor(MTLBlendFactor);
 
     /**
         
     */
-    @property MTLBlendFactor destinationAlphaBlendFactor() @selector("destinationAlphaBlendFactor") ;
-    @property void destinationAlphaBlendFactor(MTLBlendFactor) @selector(
-        "setDestinationAlphaBlendFactor:") ;
+    @property MTLBlendFactor destinationRGBBlendFactor();
+    @property void destinationRGBBlendFactor(MTLBlendFactor);
+
+    /**
+        
+    */
+    @property MTLBlendFactor sourceAlphaBlendFactor();
+    @property void sourceAlphaBlendFactor(MTLBlendFactor);
+
+    /**
+        
+    */
+    @property MTLBlendFactor destinationAlphaBlendFactor();
+    @property void destinationAlphaBlendFactor(MTLBlendFactor);
 }
 
 /**

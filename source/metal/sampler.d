@@ -128,6 +128,7 @@ extern (Objective-C)
 extern class MTLSamplerDescriptor : NSObject, NSCopying {
 nothrow @nogc:
 public:
+    
     /**
         Returns a new instance of the receiving class.
     */

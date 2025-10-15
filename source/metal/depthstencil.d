@@ -132,6 +132,17 @@ extern(Objective-C)
 extern class MTLStencilDescriptor : NSObject, NSCopying {
 nothrow @nogc:
 public:
+    
+    /**
+        Returns a new instance of the receiving class.
+    */
+    override static MTLStencilDescriptor alloc() @selector("alloc");
+
+    /**
+        Implemented by subclasses to initialize a new object (the receiver) 
+        immediately after memory for it has been allocated.
+    */
+    override MTLStencilDescriptor init() @selector("init");
 
     /**
         The comparison that is performed between the masked reference value and a 
@@ -187,6 +198,17 @@ extern(Objective-C)
 extern class MTLDepthStencilDescriptor : NSObject, NSCopying {
 nothrow @nogc:
 public:
+    
+    /**
+        Returns a new instance of the receiving class.
+    */
+    override static MTLDepthStencilDescriptor alloc() @selector("alloc");
+
+    /**
+        Implemented by subclasses to initialize a new object (the receiver) 
+        immediately after memory for it has been allocated.
+    */
+    override MTLDepthStencilDescriptor init() @selector("init");
 
     /**
         A string that identifies this object.

@@ -394,8 +394,8 @@ public:
     /**
         The clear stencil value to be used if the loadAction property is Clear
     */
-    @property uint clearDepth() @selector("clearDepth");
-    @property void clearDepth(uint) @selector("setClearDepth:");
+    @property uint clearStencil();
+    @property void clearStencil(uint);
 
     /**
         The filter to be used for stencil multisample resolve. 

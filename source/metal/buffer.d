@@ -27,11 +27,6 @@ extern interface MTLBuffer : MTLResource {
 public:
 
     /**
-        Gets the system address of the buffer’s storage allocation.
-    */
-    @property void* contents();
-
-    /**
         The logical size of the buffer, in bytes.
     */
     @property NSUInteger length() const;
@@ -45,6 +40,11 @@ public:
         The buffer on another GPU that the buffer was created from, if any.
     */
     @property MTLBuffer remoteStorageBuffer() const;
+
+    /**
+        Gets the system address of the buffer’s storage allocation.
+    */
+    void* contents() @selector("contents");
 
     /**
         Creates a texture that shares its storage with the buffer.

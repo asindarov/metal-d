@@ -38,7 +38,7 @@ enum MTLStages : NSUInteger {
     Tile                  = 1 << 2,
     
     /// Represents all object shader stage work in a render pass.
-    bject                = 1 << 3,
+    Object                = 1 << 3,
     
     /// Represents all mesh shader stage work work in a render pass.
     Mesh                  = 1 << 4,
@@ -101,4 +101,9 @@ public:
         Pops the latest string off of a stack of debug group strings for the command encoder.
     */
     void popDebugGroup() @selector("popDebugGroup");
+
+    /**
+        Encodes a consumer barrier on work you commit to the same command queue.
+    */
+    void barrier(MTLStages beforeStages, MTLStages beforeStages) @selector("barrierAfterQueueStages:beforeStages:");
 }

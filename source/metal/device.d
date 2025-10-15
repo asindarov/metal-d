@@ -665,6 +665,11 @@ public:
     MTLSamplerState newSamplerState(MTLSamplerDescriptor descriptor) @selector("newSamplerStateWithDescriptor:");
 
     /**
+        Creates a depth-stencil state instance.
+    */
+    MTLDepthStencilState newDepthStencilState(MTLDepthStencilDescriptor descriptor) @selector("newDepthStencilStateWithDescriptor:");
+
+    /**
         Creates a new memory fence instance.
     */
     MTLFence newFence() @selector("newFence");

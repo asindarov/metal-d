@@ -11,6 +11,7 @@ import metal.commandbuffer;
 import metal.depthstencil;
 import metal.renderpipeline;
 import metal.renderpass;
+import metal.resource;
 import metal.argument;
 import metal.sampler;
 import metal.texture;
@@ -140,6 +141,11 @@ public:
         that applies to your subsequent draw commands.
     */
     void setRenderPipelineState(MTLRenderPipelineState pipelineState) @selector("setRenderPipelineState:");
+
+    /**
+        Configures the combined depth and stencil state.
+    */
+    void setDepthStencilState(MTLDepthStencilState depthStencilState) @selector("setDepthStencilState:");
 
     /**
         Configures the store action for a color attachment.
@@ -588,6 +594,34 @@ public:
             instanceCount =     The number of instances drawn.
     */
     void drawIndexed(MTLPrimitiveType primitiveType, NSUInteger indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, NSUInteger indexBufferOffset, NSUInteger instanceCount) @selector("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:instanceCount:");
+
+    /**
+        Draw primitives with an index list.
+        
+        Params:
+            primitiveType =     The type of primitives that elements are assembled into.
+            indexCount =        The number of indexes to read from the index buffer for each instance.
+            indexType =         The type if indexes, either 16 bit integer or 32 bit integer.
+            indexBuffer =       A buffer object that the device will read indexes from.
+            indexBufferOffset = Byte offset within $(D indexBuffer) to start reading indexes from.
+                                $(D indexBufferOffset) must be a multiple of the index size.
+            instanceCount =     The number of instances drawn.
+            baseVertex =        The base vertex
+            baseInstance =      The base instance
+    */
+    void drawIndexed(MTLPrimitiveType primitiveType, NSUInteger indexCount, MTLIndexType indexType, MTLBuffer indexBuffer, NSUInteger indexBufferOffset, NSUInteger instanceCount, NSUInteger baseVertex, NSUInteger baseInstance) @selector("drawIndexedPrimitives:indexCount:indexType:indexBuffer:indexBufferOffset:instanceCount:baseVertex:baseInstance:");
+
+    /**
+        Creates a memory barrier that enforces the order of write and read 
+        operations for specific resources.
+
+        Params:
+            resources = Pointer to array of resources
+            count =     The amount of resources
+            after =     The render stages of previous draw commands that modify resources.
+            before =    The render stages of subsequent draw commands that read or modify resources.
+    */
+    void memoryBarrier(MTLResource* resources, NSUInteger count, MTLRenderStages after, MTLRenderStages before) @selector("memoryBarrierWithResources:count:afterStages:beforeStages:");
 
     /**
         Encodes a command that instructs the GPU to pause before starting one or 
