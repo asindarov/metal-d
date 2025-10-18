@@ -415,6 +415,17 @@ extern class MTLRenderPassDescriptor : NSObject {
 public:
 
     /**
+        Returns a new instance of the receiving class.
+    */
+    override static MTLRenderPassDescriptor alloc() @selector("alloc");
+
+    /**
+        Implemented by subclasses to initialize a new object (the receiver) 
+        immediately after memory for it has been allocated.
+    */
+    override MTLRenderPassDescriptor init() @selector("init");
+
+    /**
         Create an autoreleased default frame buffer descriptor
     */
     static MTLRenderPassDescriptor create() @selector("renderPassDescriptor");
