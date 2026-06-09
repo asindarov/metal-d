@@ -5,8 +5,6 @@
     License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
     Authors:   Asadbek Sindarov 
 */
-
-
 module metal.computepipeline;
 import metal.library;
 import metal.renderpass;
@@ -21,6 +19,7 @@ import core.attribute : selector, optional;
 
 extern (Objective-C)
 extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
+  
   /**
     Configures the compute encoder with a pipeline state for subsequent kernel calls.
   */
@@ -30,7 +29,6 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
     Binds a buffer to the buffer argument table, allowing compute kernels to access its data on the GPU.
   */ 
     void setBuffer(MTLBuffer buffer, NSUInteger offset, NSUInteger index) @selector("setBuffer:offset:atIndex:");
-
 
   /**
     Encodes a compute command using an arbitrarily sized grid.
@@ -48,7 +46,6 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
   void endEncoding() @selector("endEncoding");
 }
 
-
 /**
   Information about the arguments of a compute function.
 */
@@ -56,6 +53,7 @@ extern (Objective-C)
 extern interface MTLComputePipelineReflection : NSObjectProtocol {
 @nogc nothrow
 public:
+
   @property NSArray!MTLBinding bindings() @selector("bindings");
 }
 
@@ -71,6 +69,7 @@ extern (Objective-C)
 extern interface MTLComputePipelineState : NSObjectProtocol {
 @nogc nothrow
 public:
+
     /**
         The GPU device that created the command queue.
     */
@@ -122,4 +121,3 @@ public:
     */
     @property MTLShaderValidation shaderValidation() const;
 }
-
