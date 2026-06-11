@@ -720,12 +720,30 @@ public:
     MTLLibrary newLibrary(NSString source, MTLCompileOptions options, ref NSError error) @selector("newLibraryWithSource:options:error:");
 
     /**
-      Creates a Metal library instance that contains the functions in the Metal library file at a URL.
-      */
+        Creates a Metal library instance that contains the functions in the Metal library file at a URL.
+
+        Params:
+            url =   A URL to a Metal library file (ending in .metallib).
+            error = On return, if an error occurs, a pointer to an error information instance; otherwise, $(D null).
+
+        Returns:
+            A $(D MTLLibrary) loaded from the file at $(D url) on success,
+            $(D null) otherwise.
+    */
     MTLLibrary newLibrary(NSURL url, ref NSError error) @selector("newLibraryWithURL:error:");
 
     /** 
-      Synchronously creates a compute pipeline state and reflection with a function instance.
+        Synchronously creates a compute pipeline state and reflection with a function instance.
+
+        Params:
+            computeFunction = An $(D MTLFunction) instance.
+            options = An $(D MTLPipelineOption) instance that represents the reflection information you want the method to generate.
+            reflection = an $(D MTLAutoreleasedComputePipelineReflection) instance.
+            error = On return, if an error occurs, a pointer to an error information instance; otherwise, $(D null).
+
+        Returns:
+            A $(D MTLComputePipelineState) instance on success,
+            $(D null) otherwise.
      */
     MTLComputePipelineState newComputePipelineStateWithFunction(MTLFunction computeFunction, MTLPipelineOption options, MTLAutoreleasedComputePipelineReflection reflection, NSError error) @selector("newComputePipelineStateWithFunction:options:reflection:error:"); 
 
