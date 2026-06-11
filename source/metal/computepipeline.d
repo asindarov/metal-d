@@ -24,7 +24,7 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
         Configures the compute encoder with a pipeline state for subsequent kernel calls. 
     
         Params:
-          state = An $(D MTLComputePipelineState) instance
+            state = An $(D MTLComputePipelineState) instance
     */
     void setComputePipelineState(MTLComputePipelineState state) @selector("setComputePipelineState:");
 
@@ -32,9 +32,9 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
         Binds a buffer to the buffer argument table, allowing compute kernels to access its data on the GPU.
 
         Params:
-          buffer = The $(D MTLBuffer) instance to bind to the argument table.
-          offset = The number of bytes to skip in the buffer before the first element of data.
-          index = The index the buffer binds to in the argument table.
+            buffer = The $(D MTLBuffer) instance to bind to the argument table.
+            offset = The number of bytes to skip in the buffer before the first element of data.
+            index = The index the buffer binds to in the argument table.
     */
     void setBuffer(MTLBuffer buffer, NSUInteger offset, NSUInteger index) @selector("setBuffer:offset:atIndex:");
 
@@ -42,8 +42,8 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
         Encodes a compute command using an arbitrarily sized grid.
 
         Params:
-          threadsPerGrid = The number of threads in the grid, in each dimension.
-          threadsPerThreadgroup = The number of threads in one threadgroup, in each dimension.
+            threadsPerGrid = The number of threads in the grid, in each dimension.
+            threadsPerThreadgroup = The number of threads in one threadgroup, in each dimension.
     */
     void dispatchThreads(MTLSize threadsPerGrid, MTLSize threadsPerThreadgroup) @selector("dispatchThreads:threadsPerThreadgroup:");
 
@@ -51,8 +51,8 @@ extern interface MTLComputeCommandEncoder : MTLCommandEncoder {
         Encodes a compute dispatch command using a grid aligned to threadgroup boundaries.
     
         Params:
-          threadgroupsPerGrid = An $(D MTLSize) instance that represents the number of threads for each grid dimension.
-          threadsPerThreadgroup = An $(D MTLSize) instance that represents the number of threads in a threadgroup.
+            threadgroupsPerGrid = An $(D MTLSize) instance that represents the number of threads for each grid dimension.
+            threadsPerThreadgroup = An $(D MTLSize) instance that represents the number of threads in a threadgroup.
     */
     void dispatchThreadgroups(MTLSize threadgroupsPerGrid, MTLSize threadsPerThreadgroup) @selector("dispatchThreadgroups:threadsPerThreadgroup:");
 
