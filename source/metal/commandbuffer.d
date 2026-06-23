@@ -266,5 +266,10 @@ public:
         Marks the end of a debug group and, if applicable, restores the previous group from a stack.
     */
     void popDebugGroup() @selector("popDebugGroup");
+
+    /**
+        Creates a compute command encoder that uses default settings.
+    */
+    MTLComputeCommandEncoder computeCommandEncoder() @selector("computeCommandEncoder");
 }
 
